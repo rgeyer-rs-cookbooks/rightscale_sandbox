@@ -14,7 +14,7 @@
 default["rightscale_sandbox"]["grep_bin"] = value_for_platform("windows" => {"default" => "findstr"}, "default" => "grep")
 
 # TODO: Is there a better way to do this? Like an attributes/windows.rb file?
-if node[:platform] == "windows"
+if node["platform_family"] == "windows"
   default["rightscale_sandbox"]["home"] = `echo %RS_SANDBOX_HOME%`.strip
   default["rightscale_sandbox"]["gem_bin"] = "#{node["rightscale_sandbox"]["home"]}\\Ruby\\bin\\ruby.exe #{node["rightscale_sandbox"]["home"]}\\Ruby\\bin\\gem"
   default["rightscale_sandbox"]["rl_user_home_dir"] = `echo %USERPROFILE%`.strip

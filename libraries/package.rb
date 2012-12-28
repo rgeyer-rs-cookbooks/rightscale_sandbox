@@ -12,7 +12,7 @@
 #  limitations under the License.
 
 def load_ruby_gem_into_rightscale_sandbox(gem_name, gem_version=nil, gem_source=nil, require_gem_after_install=false)
-  if node[:platform] == "windows"
+  if node["platform_family"] == "windows"
     # NOTE: For Windows, this installs the rest_connection config yaml file only for the RightScale_1 user, so if you try
     # to use it for other stuff like, say a scheduled windows task that runs as administrator, you'd be hosed.
 

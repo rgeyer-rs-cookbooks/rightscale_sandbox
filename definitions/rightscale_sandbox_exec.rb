@@ -12,7 +12,7 @@
 #  limitations under the License.
 
 define :rightscale_sandbox_exec, :code => "" do
-  if node[:platform] == "windows"
+  if node["platform_family"] == "windows"
   powershell_script = <<'EOF'
 # Make sure we know where to find the sandbox
 cmd /c LocateSandBox.bat
